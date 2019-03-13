@@ -23,10 +23,9 @@ exports.UpdatePost = (req, res, next) => {
     _id: req.params.id
   })
     .then(post => {
-      (post.title = req.body.title),
-        (post.content = req.body.content),
-        (post.image = req.body.image),
-        (post.creator = req.body.creator);
+      post.title = req.body.title;
+      post.content = req.body.content;
+      post.image = req.body.image;
 
       post
         .save()
