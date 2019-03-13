@@ -10,6 +10,9 @@ const express = require("express"),
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// grant access to the images
+app.use('/images', express.static('images'))
+
 mongoose
   .connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true })
   .then(console.log(`Connected to ${dbName}!`))

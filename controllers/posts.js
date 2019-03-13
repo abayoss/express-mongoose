@@ -1,12 +1,16 @@
 const Post = require("../models/posts");
 
 exports.addPost = (req, res, next) => {
+  const url = req.protocol + "://" + req.get("host");
   const post = new Post({
     title: req.body.title,
     content: req.body.content,
-    image: req.body.image,
+    image: url + "/images/posts/NoImage.jpg",
     creator: req.body.creator
   });
+  if (req.file) {
+    post.image = url + "/images/posts/dev/" + req.file.filename;
+  }
   post
     .save()
     .then(post => {
@@ -19,14 +23,16 @@ exports.addPost = (req, res, next) => {
 };
 
 exports.UpdatePost = (req, res, next) => {
+  const url = req.protocol + "://" + req.get("host");
   Post.findOne({
     _id: req.params.id
   })
     .then(post => {
-      (post.title = req.body.title),
-        (post.content = req.body.content),
-        (post.image = req.body.image),
-        (post.creator = req.body.creator);
+      if (req.file) {
+        post.image = url + "/images/posts/dev/" + req.file.filename;
+      }
+      post.title = req.body.title;
+      post.content = req.body.content;
 
       post
         .save()
@@ -42,10 +48,10 @@ exports.UpdatePost = (req, res, next) => {
 };
 exports.getPosts = (req, res, next) => {
   Post.find()
-    .then(post => {
+    .then(posts => {
       res.json({
         message: "all posts:",
-        post
+        posts
       });
     })
     .catch(err => res.status(404).json({ message: "no posts here" }));
