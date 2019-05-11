@@ -1,5 +1,5 @@
 # Javascript API 
-A simple Rest API 
+An Optimized Rest API, Following best practices 
 ## What is it :
 Javascript Rest API that returns Json data by fetching it from mongoDB 
 based on express and mongoose with no authentication or authorization required !
