@@ -1,4 +1,4 @@
-# Javascript API 
+# Javascript Express API 
 An Optimized Rest API, Following best practices 
 ## What is it :
 Javascript Rest API that returns Json data by fetching it from mongoDB 
