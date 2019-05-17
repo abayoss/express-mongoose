@@ -17,7 +17,11 @@ mongoose
 
 app.use((req, res, next) => {
   // Website you wish to allow to connect || * to allow all websites
-  res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5500");
+  const allowedOrigins = ["http://localhost:4200", "http://127.0.0.1:5500"];
+  const origin = req.headers.origin;
+  if (allowedOrigins.indexOf(origin) > -1) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
   // Request methods you wish to allow
   res.setHeader(
     "Access-Control-Allow-Methods",
