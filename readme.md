@@ -10,3 +10,9 @@ based on express and mongoose with no authentication or authorization required !
 * Express and mongoose fundamentals 
 * Better API optimization
 * Working with scripts in package.json
+
+## Two other branches : 
+### image upload 
+* multer, image middleware Mine checker, acces to static storage folder
+### user authentication 
+* Json web token , bcryptjs and mongoose-unique-validator.
