@@ -6,7 +6,7 @@ exports.addPost = (req, res, next) => {
     title: req.body.title,
     content: req.body.content,
     image: url + "/images/posts/NoImage.jpg",
-    creator: req.body.creator
+    creator: req.userData.creator
   });
   if (req.file) {
     post.image = url + "/images/posts/dev/" + req.file.filename;
@@ -23,29 +23,35 @@ exports.addPost = (req, res, next) => {
 };
 
 exports.UpdatePost = (req, res, next) => {
-  const url = req.protocol + "://" + req.get("host");
-  Post.findOne({
-    _id: req.params.id
-  })
-    .then(post => {
-      if (req.file) {
-        post.image = url + "/images/posts/dev/" + req.file.filename;
-      }
-      post.title = req.body.title;
-      post.content = req.body.content;
-
-      post
-        .save()
-        .then(result => {
-          res.json({
-            message: "post updated",
+    const post = new Post({
+      _id: req.body.id,
+      title: req.body.title,
+      content: req.body.content,
+      creator: req.userData.userId
+    })
+    if ( req.file ) {
+      const url = req.protocol + "://" + req.get("host");
+      post.image = url + "/images/posts/" + req.file.filename
+    }
+    Post.updateOne({ _id: req.params.id, creator: req.userData.userId }, post)
+    .then(result => {
+      if ( result.n > 0 ){
+        res.json({
+          message: 'post Updated !',
+          post
+        });
+      } else {
+          res.status(401).json({
+            message: 'Not Autorized !',
             post
           });
-        })
-        .catch(err => res.status(404).json({ ErrorMessage: err.message }));
-    })
-    .catch(err => res.status(404).json({ ErrorMessage: err.message }));
-};
+      }
+    }).catch( err => {
+      res.status(500).json({
+        message: 'post Edit failed !'
+      })
+    });
+  };
 exports.getPosts = (req, res, next) => {
   Post.find()
     .then(posts => {
@@ -69,7 +75,22 @@ exports.getPost = (req, res, next) => {
 };
 
 exports.deletePost = (req, res, next) => {
-  Post.deleteOne({ _id: req.params.id })
-    .then(result => res.status(202).json({ message: "post deleted" }))
-    .catch(err => res.status(404).json({ ErrorMessage: err.message }));
+  Post.deleteOne({ _id: req.params.id, creator: req.userData.userId })
+    .then(result => {
+      if (result.n > 0) {
+        res.json({
+          message: "post Deleted !"
+        });
+      } else {
+        res.status(401).json({
+          message: "Not Autorized !",
+          post
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({
+        message: "post Deletion failed !"
+      });
+    });
 };
