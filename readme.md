@@ -1,7 +1,7 @@
-# Javascript API 
-A simple Rest API with image upload!
+# Javascript application 
 ## What is it :
-optional image upload to a static folder
+An application to keep ideas and posts before posting them, with a Rest API !
 ## what i learned : 
-* multer configuration
-* set static folder access 
+* Handlebars engine
+* Using Multiple databases
+* Passport js local strategy 
