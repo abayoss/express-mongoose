@@ -1,7 +1,7 @@
 const express = require('express'),
     router = express(),
-    imageCheck = require('../middleware/imageFileMulter'),
-    postsController = require('../controllers/posts');
+    imageCheck = require('../../middleware/imageFileMulter'),
+    postsController = require('../../controllers/api/posts');
 
 // Routes :
 router.get('', postsController.getPosts);

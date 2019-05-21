@@ -1,0 +1,24 @@
+<h2>My Posts</h2>
+<hr>
+<a href="/posts/add" class="btn btn-primary btn-block ">Add Post</a>
+<hr>
+<div class="row">
+  {{#each posts}}
+  <div class="col-4 mt-2" id="{{id}}">
+    <div class="card"><img class="card-img-top" src="{{image}}" alt="{{title}}">
+      <div class="card-body">
+        <h4 class="card-title">{{title}}</h4>
+        <p class="card-text">{{content}}</p>
+        {{!-- <button class="btn btn-primary btn-sm btn-block">View</button> --}}
+        <a class="btn btn-warning btn-sm btn-block my-2" href="/posts/{{id}}" >Edit</a>
+        <form method="post" action="/posts/{{id}}?_method=DELETE">
+        <button class="btn btn-danger btn-sm btn-block">Delete</button>
+        <input type="hidden" name="_method" value="DELETE">
+        </form>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  <p>No posts listed</p>
+  {{/each}}
+</div>
