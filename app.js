@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use("/images", express.static("images"));
 app.use(express.static(path.join(__dirname, "public")));
 
-// set view engine
+// set view engine 
 app.engine(
   "handlebars",
   exphbs({
