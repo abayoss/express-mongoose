@@ -7,7 +7,9 @@ based on express and mongoose with no authentication or authorization required !
 * To test web services on it 
 * keep the snippets to use them as boiler plates for other projects
 ## what i learned : 
-* Express and mongoose fundamentals 
+* Express and mongoose fundamentals : connect style, MVC, middleware
+* body parser validation 
+* Cross-origin resource sharing
 * Better API optimization
 * Working with scripts in package.json
 
@@ -16,4 +18,5 @@ based on express and mongoose with no authentication or authorization required !
 * multer, image middleware Mine checker, acces to static storage folder
 ### JWT user authentication 
 * Json web token , bcryptjs and mongoose-unique-validator.
-### Passport local user authentication 
+### Passport JS local user authentication 
+* authentication logic in passport js
