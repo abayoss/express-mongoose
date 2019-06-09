@@ -18,5 +18,5 @@ based on express and mongoose with no authentication or authorization required !
 * multer, image middleware Mine checker, acces to static storage folder
 ### JWT user authentication 
 * Json web token , bcryptjs and mongoose-unique-validator.
-### Passport JS JWT user authentication 
-* authentication logic in passport js , JWT access standard
+### Passport JS Local authentication Strategy
+* authentication logic in passport js
