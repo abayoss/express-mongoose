@@ -7,6 +7,8 @@ While learning the express framework i made this app to keep track of everything
 it's spliced to different branches, 
 Each one is made following best practices and each has some really helpful tricks 
 
+![trello i used](https://trello.com/b/BdsSSQiV/p-js-node-express-pretube)
+
 ## What you can learn in the master branch : 
  Express and mongoose fundamentals : connect style, MVC, middleware
 * body parser validation 
