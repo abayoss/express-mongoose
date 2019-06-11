@@ -1,22 +1,23 @@
-# Javascript Express API 
-An Optimized Rest API, Following best practices 
+# JavaScript Express API 
+An Optimized Rest API, Following best practices,with some cool functionalities I learned from working with Express
+
 ## What is it :
-Javascript Rest API that returns Json data by fetching it from mongoDB 
-based on express and mongoose with no authentication or authorization required !
-## what is it for :
-* To test web services on it 
-* keep the snippets to use them as boiler plates for other projects
-## what i learned : 
-* Express and mongoose fundamentals : connect style, MVC, middleware
+While learning the express framework i made this app to keep track of everything i learned so far, Tried to keep it as simple as i can, for anyone that's just starting to learn what's possible with an express API.
+	
+it's spliced to different branches, 
+Each one is made following best practices and each has some really helpful tricks 
+
+## What you can learn in the master branch : 
+ Express and mongoose fundamentals : connect style, MVC, middleware
 * body parser validation 
 * Cross-origin resource sharing
 * Better API optimization
 * Working with scripts in package.json
 
-## Other branches : 
+## What you can learn in Other branches : 
 ### image upload 
-* multer, image middleware Mine checker, acces to static storage folder
+* Multer, image middleware Mime checker, access to static storage folder
 ### JWT user authentication 
 * Json web token , bcryptjs and mongoose-unique-validator.
 ### Passport JS Local authentication Strategy
-* authentication logic in passport js
+* Authentication logic in passport js
