@@ -23,3 +23,5 @@ Each one is made following best practices and each has some really helpful trick
 * Json web token , bcryptjs and mongoose-unique-validator.
 ### Passport JS Local authentication Strategy
 * Authentication logic in passport js
+## passport js local + Google and facebook Oauth
+* authentication using open ID
