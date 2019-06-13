@@ -1,18 +1,27 @@
-# Javascript Express API 
-An Optimized Rest API, Following best practices 
+# Javascript application 
 ## What is it :
-Javascript Rest API that returns Json data by fetching it from mongoDB 
-based on express and mongoose with no authentication or authorization required !
-## what is it for :
-* To test web services on it 
-* keep the snippets to use them as boiler plates for other projects
-## what i learned : 
-* Express and mongoose fundamentals 
-* Better API optimization
-* Working with scripts in package.json
+An application to Write and share amazing stories and ideas,You can write about anything you want!
 
-## Two other branches : 
-### image upload 
-* multer, image middleware Mine checker, acces to static storage folder
-### user authentication 
-* Json web token , bcryptjs and mongoose-unique-validator.
+## use cases : 
+
+○ Public can :
+
+   * Read Public stories
+   * List stories from a unique user
+
+○ Users can : 
+
+  * Post, edit, delete : their own stories 
+
+  * Comment stories : where comments are allowed
+
+  * Change his posts visibility bettween: public, hidden or unlisted
+
+  * Allow Comments on his stories or not
+
+## what i learned : 
+* Handlebars helpers
+* Using Multiple passport strategies
+* express session
+* Passport js google 20 strategy 
+* Passport js facebook strategy 
