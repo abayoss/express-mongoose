@@ -1,7 +1,7 @@
 {
-  "name": "mongodb.tester",
+  "name": "learn-Oauth",
   "version": "1.0.0",
-  "description": "",
+  "description": "learning passport Oauth with Google and Facebook",
   "main": "app.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
