@@ -13,7 +13,7 @@ check it Out @: https://dream-vote.herokuapp.com
 ○ Authenticate by : 
    * email & password 
    * Google
-   * Facebook  
+   * Facebook  (might not work)
 
 ○ Users can : 
 
