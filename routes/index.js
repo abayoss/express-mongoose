@@ -14,6 +14,10 @@ const Story = require("../models/story");
 router.get("/", ensureGuest, (req, res) => {
   res.render("index/welcome");
 });
+
+router.get("/search", (req, res) => {
+  res.render("index/search");
+});
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
   Story.find({ creator: req.user.id })
     .populate("creator")

@@ -7,7 +7,13 @@ An application to Write and share amazing stories and ideas,You can write about 
 ○ Public can :
 
    * Read Public stories
+
    * List stories from a unique user
+
+○ Authenticate by : 
+   * email & password 
+   * Google
+   * Facebook  
 
 ○ Users can : 
 
@@ -19,9 +25,15 @@ An application to Write and share amazing stories and ideas,You can write about 
 
   * Allow Comments on his stories or not
 
-## what i learned : 
-* Handlebars helpers
-* Using Multiple passport strategies
-* express session
-* Passport js google 20 strategy 
-* Passport js facebook strategy 
+  * Vote on stories 
+
+## what i learned :
+* Modeling The Votes
+
+* Toggle Vote logic between 3 states : up / none / down 
+
+## how to use it :
+* instal node js 
+* instal App dependnecies by running : npm i
+* start the server by running : node app.js
+* Navigate to localhost:3000
