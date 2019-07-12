@@ -1,13 +1,9 @@
-{{#if Stories}}
-<h1>Stories</h1>
-{{/if}}
-
 
 <div class="row">
-    {{#each stories}}
+    {{#each dreams}}
     <div class="col s12 m4">
         <div class="card">
-            <a href="/stories/Show/{{_id}}">
+            <a href="/dreams/Show/{{_id}}">
                 <div class="card-image" style="max-height: 30vh;">
                     {{!-- <img src="{{image}}" alt="{{title}}" class="responsive-img"
                         style="height:100%;height:-webkit-fill-available;object-fit:cover;"> --}}
@@ -17,7 +13,7 @@
                     {{#if ../user}}
                     {{{editIcon creator.id ../user.id _id}}}
                     {{/if}}
-                    {{!-- <a href="/stories/edit/{{id}}" class="btn-floating halfway-fab red">
+                    {{!-- <a href="/dreams/edit/{{id}}" class="btn-floating halfway-fab red">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                 </a> --}}
                 </div>
@@ -30,7 +26,7 @@
                 {{!-- <h4 class="">{{title}}</h4> --}}
                 <p class="story-text">
                     {{{ stripTags (truncate body 150) }}}
-                    <a href="/stories/Show/{{_id}}" class="purple-text lighten-3"> Read More</a>
+                    <a href="/dreams/Show/{{_id}}" class="purple-text lighten-3"> Read More</a>
                 </p>
             </div>
             {{!-- votes --}}
@@ -56,7 +52,7 @@
             <div class="card-action center-align">
                 <div class="chip">
                     <img src="{{creator.image}}" alt="Creator">
-                    <a href="/stories/user/{{creator.id}}" class="black-text">
+                    <a href="/dreams/user/{{creator.id}}" class="black-text">
                         {{creator.firstName}} {{creator.lastName}}
                     </a>
                 </div>
@@ -65,7 +61,7 @@
     </div>
     {{else}}
     <div class="row">
-        <p>it seems that there is no stories
+        <p>it seems that there is no dreams
     </div>
     {{/each}}
 </div>

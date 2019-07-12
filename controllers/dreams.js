@@ -1,60 +1,59 @@
 // models
-const Story = require('../models/story');
+const Dream = require('../models/dream');
 const Vote = require('../models/vote');
 
 module.exports = {
-  addStory: (req, res) => {
+  addDream: (req, res) => {
     const url = req.protocol + '://' + req.get('host');
-    const newStory = {
+    const newDream = {
       title: req.body.title,
       body: req.body.body,
       status: req.body.status,
       creator: req.user.id,
       image: url + '/img/NoImage.jpg'
     };
-    if (!newStory.body) newStory.body = 'to be writen soon...';
+    if (!newDream.body) newDream.body = 'to be writen soon...';
     if (!req.body.allowComments) {
-      newStory.allowComments = false;
+      newDream.allowComments = false;
     }
-    new Story(newStory).save().then(story => {
-      res.redirect(`/stories/show/${story.id}`);
+    new Dream(newDream).save().then(dream => {
+      res.redirect(`/dreams/show/${dream.id}`);
     });
   },
-  editStory: (req, res) => {
-    Story.findOne({ _id: req.params.id }).then(story => {
+  editDream: (req, res) => {
+    Dream.findOne({ _id: req.params.id }).then(dream => {
       // new values
-      console.log('TCL: req.body', req.body);
-      story.title = req.body.title;
-      story.body = req.body.body;
-      story.status = req.body.status;
+      dream.title = req.body.title;
+      dream.body = req.body.body;
+      dream.status = req.body.status;
       if (req.body.allowComments) {
-        story.allowComments = true;
+        dream.allowComments = true;
       } else {
-        story.allowComments = false;
+        dream.allowComments = false;
       }
-      story.save().then(story => {
-        res.redirect(`/stories/show/${story.id}`);
+      dream.save().then(dream => {
+        res.redirect(`/dreams/show/${dream.id}`);
       });
     });
   },
-  deleteStory: (req, res) => {
-    Story.deleteOne({ _id: req.params.id }).then(story => {
+  deleteDream: (req, res) => {
+    Dream.deleteOne({ _id: req.params.id }).then(dream => {
       Vote.deleteMany({ storyId: req.params.id }).then(votes =>
         res.redirect(`/dashboard`)
       );
     });
   },
   addComment: (req, res) => {
-    Story.findOne({ _id: req.params.storyId }).then(story => {
+    Dream.findOne({ _id: req.params.storyId }).then(dream => {
       const newComment = {
         commentBody: req.body.commentBody,
         commentCreator: req.user.id
       };
       // add to the begining of the array
-      story.comments.unshift(newComment);
+      dream.comments.unshift(newComment);
 
-      story.save().then(story => {
-        res.redirect(`/stories/show/${story.id}`);
+      dream.save().then(dream => {
+        res.redirect(`/dreams/show/${dream.id}`);
       });
     });
   },
@@ -66,21 +65,21 @@ module.exports = {
     // toggle Vote
     let voteNum = req.params.vote == 1 ? 0 : 1;
     // find the concerned Story
-    Story.findOne({ _id: req.params.storyId }).then(story => {
+    Dream.findOne({ _id: req.params.dreamId }).then(dream => {
       // * [X] check if it's his first vote on this story
       Vote.findOne({
-        storyId: story.id,
+        storyId: dream.id,
         voteCreator: req.user
       }).then(vote => {
         if (!vote) {
           // * [X] create new vote with direction and creator
           const newVote = {
             direction: voteNum,
-            storyId: story.id,
+            storyId: dream.id,
             voteCreator: req.user
           };
           new Vote(newVote).save().then(vote => {
-            story.votes = vote.id;
+            dream.votes = vote.id;
             return res.json({ message: 'up vote created', vote });
           });
         } else {
@@ -97,28 +96,28 @@ module.exports = {
     //  toggle Vote
     let voteNum = req.params.vote == -1 ? 0 : -1;
     //  find the concerned Story
-    Story.findOne({ _id: req.params.storyId }).then(story => {
+    Dream.findOne({ _id: req.params.dreamId }).then(dream => {
       //  check if it's his first vote on this story
       Vote.findOne({
-        storyId: story.id,
+        storyId: dream.id,
         voteCreator: req.user
       }).then(vote => {
         if (!vote) {
           //  create new vote with direction and creator
           const newVote = {
             direction: voteNum,
-            storyId: story.id,
+            storyId: dream.id,
             voteCreator: req.user
           };
           new Vote(newVote).save().then(vote => {
-            story.votes = vote.id;
-            return res.json({ message: 'down vote created', story, vote });
+            dream.votes = vote.id;
+            return res.json({ message: 'down vote created', dream, vote });
           });
         } else {
           // update the vote direction
           vote.direction = voteNum;
           vote.save().then(vote => {
-            return res.json({ message: 'down vote updated', story, vote });
+            return res.json({ message: 'down vote updated', dream, vote });
           });
         }
       });

@@ -1,7 +1,7 @@
 <nav>
     <div class="nav-wrapper purple">
         <div class="container">
-            <a href="/stories" class="brand-logo {{#if user}} center {{/if}}">Dreamer</a>
+            <a href="/dreams" class="brand-logo {{#if user}} center {{/if}}">Dreamer</a>
             {{#if user}}
             <a href="#" data-target="slide-out" class="sidenav-trigger button-collapse show-on-large">
                 <i class="fa fa-bars" aria-hidden="true"></i>
@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 {{else}}
-                <li class="hide-on-small-only"><a href="/stories">
+                <li class="hide-on-small-only"><a href="/dreams">
                         <i class="fa fa-book" aria-hidden="true"></i>
                         Dreams Feed
                     </a>
@@ -50,11 +50,11 @@
         <div class="divider"></div>
     </li>
     <li><a class="waves-effect" href="/dashboard">Dashboard</a></li>
-    <li><a class="waves-effect" href="/stories/my">My Dreams</a></li>
+    <li><a class="waves-effect" href="/dreams/my">My Dreams</a></li>
     <li>
         <div class="divider"></div>
     </li>
     <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="/stories">Public Dreams</a></li>
+    <li><a class="waves-effect" href="/dreams">Public Dreams</a></li>
 </ul>
 {{/if}}

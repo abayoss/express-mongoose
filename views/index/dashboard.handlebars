@@ -1,7 +1,7 @@
 <br /><br />
-<h2>Your Stories</h2>
+<h2>Your dreams</h2>
 <div class="row">
-  {{#if stories}}
+  {{#if dreams}}
   <table class="striped">
     <thead>
       <tr>
@@ -15,9 +15,9 @@
 
     <tbody>
       <tr>
-        {{#each stories}}
+        {{#each dreams}}
         <td>
-          <a href="/stories/show/{{ id }}">{{ title }}</a>
+          <a href="/dreams/show/{{ id }}">{{ title }}</a>
         </td>
         <td>{{formatDate date 'MMMM, Do, YYYY'}}</td>
         <td>{{ status }}</td>
@@ -33,8 +33,8 @@
           {{/if}}
         </td>
         <td class="center-align">
-          <form method="POST" action="/stories/{{ id }}?_method=DELETE">
-            <a href="/stories/edit/{{ id }}" class="btn waves-effect waves-light">Edit</a>
+          <form method="POST" action="/dreams/{{ id }}?_method=DELETE">
+            <a href="/dreams/edit/{{ id }}" class="btn waves-effect waves-light">Edit</a>
             <input type="hidden" name="_method" value="DELETE">
             <button class="btn waves-effect waves-light red" type="submit" name="action">
               delete

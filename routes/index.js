@@ -3,13 +3,13 @@ const express = require("express"),
 
 // Routes
 const authRouter = require("./auth"),
-  storiesRouter = require("./stories");
+  dreamsRouter = require("./dreams");
 
 // Helpers
 const { ensureAuthenticated, ensureGuest } = require("../helpers/auth");
 
 // models
-const Story = require("../models/story");
+const Dream = require("../models/dream");
 
 router.get("/", ensureGuest, (req, res) => {
   res.render("index/welcome");
@@ -19,14 +19,14 @@ router.get("/search", (req, res) => {
   res.render("index/search");
 });
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
-  Story.find({ creator: req.user.id })
+  Dream.find({ creator: req.user.id })
     .populate("creator")
-    .then(stories => {
-      res.render("index/dashboard", { stories });
+    .then(dreams => {
+      res.render("index/dashboard", { dreams });
     });
 });
 
 router.use("/auth", authRouter);
-router.use("/stories", storiesRouter);
+router.use("/dreams", dreamsRouter);
 
 module.exports = router;

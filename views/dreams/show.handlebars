@@ -1,25 +1,25 @@
 <div class="row">
     <div class="col s12 m8">
-        {{!-- <h2>{{story.title}}</h2> --}}
+        {{!-- <h2>{{dream.title}}</h2> --}}
         <div class="card">
             <div class="card-image" style="max-height: 70vh;">
-                {{!-- <img src="{{story.image}}" alt="{{story.title}}" class="responsive-img"
+                {{!-- <img src="{{dream.image}}" alt="{{dream.title}}" class="responsive-img"
                     style="height:-moz-available;height:-webkit-fill-available;object-fit:cover;"> --}}
                 {{!-- <span class="card-title">
-                    {{story.title}}
+                    {{dream.title}}
                 </span> --}}
                 {{!-- floating button with helper: --}}
-                <small>{{{ editIcon story.creator.id user.id story._id }}}</small>
+                <small>{{{ editIcon dream.creator.id user.id dream._id }}}</small>
                 {{!-- floating button without helper: --}}
-                {{!-- <a href="/stories/edit/{{story.id}}" class="btn-floating halfway-fab red">
+                {{!-- <a href="/dreams/edit/{{dream.id}}" class="btn-floating halfway-fab red">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                 </a> --}}
             </div>
             <div class="card-content">
                 <span class="card-title">
-                    {{story.title}}
+                    {{dream.title}}
                 </span>
-                <div class="row right-align">{{formatDate story.date 'MMMM Do YYYY'}}</div>
+                <div class="row right-align">{{formatDate dream.date 'MMMM Do YYYY'}}</div>
                 <div class="row right-align">
                     <button class="btn" onclick="readAloud()">
                         <i class="fa fa-volume-up" aria-hidden="true"></i>
@@ -27,17 +27,17 @@
                     </button>
                 </div>
                 <div class="card-action bodyToRead">
-                    {{{story.body}}}
+                    {{{dream.body}}}
                 </div>
             </div>
         </div>
         {{!-- comments card --}}
-        {{#if story.allowComments}}
+        {{#if dream.allowComments}}
         <div class="card">
             <div class="card-content">
                 <span class="card-title">Comments</span>
                 {{#if user}}
-                <form action="/stories/comment/{{story._id}}" method="post">
+                <form action="/dreams/comment/{{dream._id}}" method="post">
                     <div class="input-field">
                         <textarea name="commentBody" class="materialize-textarea"></textarea>
                         <label for="commentBody">Add comment</label>
@@ -49,14 +49,14 @@
                 <p>Please <a href="/Auth/login">Log</a> in to leave a comment </p>
                 {{/if}}
             </div>
-            {{#each story.comments}}
+            {{#each dream.comments}}
             <div class="card-action">
                 <h6>{{commentBody}}</h6>
                 <div class="right-align">
                     <small>Posted {{formatDate commentDate 'MMMM Do YYYY'}} by : </small>
                     <div class="chip">
                         <img src="{{commentCreator.image}}" alt="Creator">
-                        <a href="/stories/user/{{commentCreator.id}}" class="black-text">
+                        <a href="/dreams/user/{{commentCreator.id}}" class="black-text">
                             {{commentCreator.firstName}} {{CommentCreator.lastName}}
                         </a>
                     </div>
@@ -69,35 +69,35 @@
     {{!-- user card --}}
     <div class="col s12 m4">
         <div class="card">
-            <a href="/stories/user/{{story.creator.id}}">
+            <a href="/dreams/user/{{dream.creator.id}}">
                 <div class="card-content center-align">
-                    <h4 class="center black-text">{{story.creator.firstName}} {{story.creator.lastName}}</h4>
-                    <img src="{{story.creator.image}}" alt="" class="circle responsive-img">
+                    <h4 class="center black-text">{{dream.creator.firstName}} {{dream.creator.lastName}}</h4>
+                    <img src="{{dream.creator.image}}" alt="" class="circle responsive-img">
                 </div>
                 <div class="card-action center-align">
-                    <a>Read More From {{story.creator.firstName}}</a>
+                    <a>Read More From {{dream.creator.firstName}}</a>
                 </div>
             </a>
         </div>
         {{!-- Voting card --}}
         <div class="card center-align">
-            <a {{#if user}} onclick="sendVote('{{story._id}}',{{story.currentUserDirection}}, 'upVote')" {{else}}
-                href="/auth/login" {{/if}} id="upVote-{{story._id}}"
-                class=" {{#if story.currentUserVotedUp }} purple-text {{else}} black-text {{/if}}"
+            <a {{#if user}} onclick="sendVote('{{dream._id}}',{{dream.currentUserDirection}}, 'upVote')" {{else}}
+                href="/auth/login" {{/if}} id="upVote-{{dream._id}}"
+                class=" {{#if dream.currentUserVotedUp }} purple-text {{else}} black-text {{/if}}"
                 style="display: contents; cursor: pointer;">
                 <i class="fa fa-chevron-up" aria-hidden="true"></i>
             </a>
-            <p id="totalVotes-{{story._id}}"
-                data-key="{{#if story.currentUserVotedUp }}up{{/if}}{{#if story.currentUserVotedDown }}down{{/if}}">
-                {{story.totalVotes}}
+            <p id="totalVotes-{{dream._id}}"
+                data-key="{{#if dream.currentUserVotedUp }}up{{/if}}{{#if dream.currentUserVotedDown }}down{{/if}}">
+                {{dream.totalVotes}}
             </p>
-            <a {{#if user}} onclick="sendVote('{{story._id}}', {{story.currentUserDirection}},'downVote')" {{else}}
-                href="/auth/login" {{/if}} id="downVote-{{story._id}}"
-                class=" {{#if story.currentUserVotedDown }} red-text {{else}} black-text {{/if}}"
+            <a {{#if user}} onclick="sendVote('{{dream._id}}', {{dream.currentUserDirection}},'downVote')" {{else}}
+                href="/auth/login" {{/if}} id="downVote-{{dream._id}}"
+                class=" {{#if dream.currentUserVotedDown }} red-text {{else}} black-text {{/if}}"
                 style="display: contents;cursor: pointer;">
                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
             </a>
-            <div class="card-action">Vote This Story</div>
+            <div class="card-action">Vote This dream</div>
         </div>
     </div>
 </div>

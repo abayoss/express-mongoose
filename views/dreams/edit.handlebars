@@ -1,9 +1,9 @@
-<h2>Edit a story</h2>
+<h2>Edit a dream</h2>
 <form action="?_method=PUT" method="POST">
     <input type="hidden" name="_method" value="PUT">
     <div class="row">
         <div class="input-field">
-            <input type="text" id="title" name="title" class="validate" value='{{story.title}}' required />
+            <input type="text" id="title" name="title" class="validate" value='{{dream.title}}' required />
             <label for="title">Title</label>
         </div>
     </div>
@@ -13,7 +13,7 @@
         </label>
 
         <select name="status">
-            {{#select story.status}}
+            {{#select dream.status}}
             <option value="private" selected>Private</option>
             <option value="public">Public</option>
             <option value="unpublished">Unpublished</option>
@@ -26,14 +26,14 @@
     </div> --}}
     <div class="row">
         <label>
-            <input name="allowComments" type="checkbox" class="filled-in" {{#if story.allowComments}} checked="checked"
+            <input name="allowComments" type="checkbox" class="filled-in" {{#if dream.allowComments}} checked="checked"
                 {{/if}} />
             <span>Allow Comments</span>
         </label>
     </div>
     <div class="row">
         <h5 for="body" class="bold">What's On Your Mind</h5>
-        <textarea name="body" id="bodyCK" class="materialize-textarea" required>{{story.body}}</textarea>
+        <textarea name="body" id="bodyCK" class="materialize-textarea" required>{{dream.body}}</textarea>
     </div>
     <div class="row">
         <button href="#" type="Submit" class="waves-effect btn">Submit</button>

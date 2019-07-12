@@ -5,7 +5,7 @@ function sendVote(storyId, previousVoteValue, direction) {
   const dataKey = totalVoteText.getAttribute("data-key");
 
   // send fetch request with it : /Vote/:storyId/:vote
-  fetch(`/stories/${direction}/${storyId}/${previousVoteValue}`, {
+  fetch(`/dreams/${direction}/${storyId}/${previousVoteValue}`, {
     method: "POST"
   })
     .then(result => {
