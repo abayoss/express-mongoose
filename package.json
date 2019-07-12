@@ -1,5 +1,5 @@
 {
-  "name": "learn-Oauth",
+  "name": "learn-oauth",
   "version": "1.0.0",
   "description": "learning passport Oauth with Google and Facebook",
   "main": "app.js",
@@ -17,8 +17,7 @@
     "passport": "^0.4.0",
     "passport-facebook": "^3.0.0",
     "passport-google-oauth20": "^2.0.0",
-    "passport-local": "^1.0.0",
-    "passport-twitter": "^1.0.4"
+    "passport-local": "^1.0.0"
   },
   "scripts": {
     "start": "node app.js",
