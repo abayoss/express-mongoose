@@ -46,8 +46,8 @@ module.exports = function(passport) {
   passport.use(
     new GoogleStrategy(
       {
-        clientID: keys.google.ClientID,
-        clientSecret: keys.google.ClientSecret,
+        clientID: keys.googleClientID,
+        clientSecret: keys.googleClientSecret,
         callbackURL: "/auth/Oauth/google/callback",
         proxy: true
       },
@@ -76,8 +76,8 @@ module.exports = function(passport) {
   passport.use(
     new FacebookStrategy(
       {
-        clientID: keys.facebook.ClientID,
-        clientSecret: keys.facebook.ClientSecret,
+        clientID: keys.facebookClientID,
+        clientSecret: keys.facebookClientSecret,
         callbackURL: "/auth/Oauth/facebook/callback",
         profileFields: ["id", "name", "email"]
       },
