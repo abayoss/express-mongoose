@@ -13,10 +13,8 @@ const userSchema = new Schema({
 });
 
 userSchema.pre("save", function(next) {
-  console.log('entered');
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(this.password, salt, (err, hashedPassword) => {
-      console.log("TCL: this.password", this.password)
       if (err) throw err;
       this.password = hashedPassword;
       next();

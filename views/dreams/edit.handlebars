@@ -1,5 +1,5 @@
 <h2>Edit a dream</h2>
-<form action="?_method=PUT" method="POST">
+<form action="?_method=PUT" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="_method" value="PUT">
     <div class="row">
         <div class="input-field">
@@ -20,10 +20,10 @@
             {{/select}}
         </select>
     </div>
-    {{!-- <div class="row center-align">
+    <div class="row center-align">
         <input type="file" name="image" id="fileUpload" hidden>
         <button href="#" type="Submit" id="imgUp" class="waves-effect purple btn">choose a cover image</button>
-    </div> --}}
+    </div>
     <div class="row">
         <label>
             <input name="allowComments" type="checkbox" class="filled-in" {{#if dream.allowComments}} checked="checked"
@@ -39,10 +39,10 @@
         <button href="#" type="Submit" class="waves-effect btn">Submit</button>
     </div>
 </form>
-{{!-- <script>
+<script>
   document.getElementById("imgUp").addEventListener('click', function (event) {
     event.preventDefault();
     document.getElementById("fileUpload").click();
   })
 
-</script> --}}
+</script>

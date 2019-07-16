@@ -1,9 +1,9 @@
 // models
 const Dream = require('../models/dream');
 const Vote = require('../models/vote');
-
+const {uploadFileGetUrl} = require('../helpers/controllerHelpers');
 module.exports = {
-  addDream: (req, res) => {
+  addDream: async (req, res) => {
     const url = req.protocol + '://' + req.get('host');
     const newDream = {
       title: req.body.title,
@@ -16,12 +16,15 @@ module.exports = {
     if (!req.body.allowComments) {
       newDream.allowComments = false;
     }
+    if (req.file) {
+      newDream.image = await uploadFileGetUrl(req.file, req.bucket);
+    }
     new Dream(newDream).save().then(dream => {
       res.redirect(`/dreams/show/${dream.id}`);
     });
   },
   editDream: (req, res) => {
-    Dream.findOne({ _id: req.params.id }).then(dream => {
+    Dream.findOne({ _id: req.params.id }).then(async dream => {
       // new values
       dream.title = req.body.title;
       dream.body = req.body.body;
@@ -30,6 +33,12 @@ module.exports = {
         dream.allowComments = true;
       } else {
         dream.allowComments = false;
+      }
+      if (req.file) {
+        const image = await uploadFileGetUrl(req.file, req.bucket);
+        if (image !== false) {
+          dream.image = image;
+        }
       }
       dream.save().then(dream => {
         res.redirect(`/dreams/show/${dream.id}`);
