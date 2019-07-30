@@ -2,6 +2,8 @@
 ## What is it :
 An application to Write and share amazing stories and ideas,You can write about anything you want!
 check it Out @: https://dream-vote.herokuapp.com
+
+![](https://i.imgur.com/ZIi65is.png)
 ## use cases : 
 
 ○ Public can :
