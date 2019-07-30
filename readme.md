@@ -26,7 +26,8 @@ Each one is made following best practices and each has some really helpful trick
 ### passport js local + Google and facebook Oauth
 * authentication using open ID
 
-## Finale application : 
+## Final application : 
+Using all the knowledge from the previous branches
 ### Dreamer 
 An application to Write and share amazing stories and ideas,You can write about anything you want!
 
