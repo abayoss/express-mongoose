@@ -12,7 +12,7 @@ Each one is made following best practices and each has some really helpful trick
 ## what you can Gain in general :
 * JavaScript web development
 * Building RESTful APIs using Node.js
-* Frontend technology (ES6, React, Angular, Webpack, ...)
+* Frontend technologies (ES6, handlebars engine, materializecss, ...)
 * Writing high quality code.
 * Familiarity with no-sql databases (MongoDB)
 * Knowledge of authentication and authorization technologies (session based authentification, JWT, OAuth2, ...)
