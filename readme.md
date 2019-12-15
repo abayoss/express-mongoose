@@ -7,10 +7,18 @@ While learning the express framework i made this app to keep track of everything
 it's spliced to different branches, 
 Each one is made following best practices and each has some really helpful tricks 
 
-[Trello Board I used](https://trello.com/b/BdsSSQiV/p-js-node-express-pretube)
+[THE Trello Board I used to accomplish this](https://trello.com/b/BdsSSQiV/p-js-node-express-pretube)
+
+## what you can Gain in general :
+* JavaScript web development
+* Building RESTful APIs using Node.js
+* Frontend technology (ES6, React, Angular, Webpack, ...)
+* Writing high quality code.
+* Familiarity with no-sql databases (MongoDB)
+* Knowledge of authentication and authorization technologies (session based authentification, JWT, OAuth2, ...)
 
 ## What you can learn in the master branch : 
- Express and mongoose fundamentals : connect style, MVC, middleware
+* Express and mongoose fundamentals : connect style, MVC, middleware
 * body parser validation 
 * Cross-origin resource sharing
 * Better API optimization
